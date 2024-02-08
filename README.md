@@ -1,24 +1,24 @@
 ## Installation
 
-In the root folder
+In the root folder, with docker running:
 
 ```bash
 $ docker-compose up -d
 $ npm install
 ```
 
-Inside src folder, create the database, tables, and fill them with test data following the commands below:
+Inside /src folder, create the tables and fill them with test data following the commands below:
 
 ```bash
-$ npx sequelize-cli db:create
 $ npx sequelize-cli db:migrate
 $ npx sequelize-cli db:seed:all
 ```
 
 ## Running the app
 
+In the root folder:
+
 ```bash
-# development
 $ npm run start
 ```
 
@@ -32,7 +32,6 @@ curl  -X GET \
 ## Test
 
 ```bash
-# unit tests
 $ npm run test
 ```
 
@@ -40,5 +39,6 @@ $ npm run test
 
 Database in 3NF as follows:
 For each table, transitive dependency was removed, so none non-prime attribute is dependent on another non-prime attribute.
+The system is able to scale easily, just addind new roles and/or permissions to the correspondent tables and relate them with desired users.
 
 ![Database Schema](schema.png)
